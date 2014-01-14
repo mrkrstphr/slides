@@ -1,0 +1,5 @@
+body {background-color: #0f0f0f}
+.slides,
+.slide.current {background-color: rgb(4, 19, 77)}
+div.highlight {background-color: #111}
+code {background-color: #111; color: #fff; font-size: 0.85em}

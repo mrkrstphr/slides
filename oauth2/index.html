@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Authentication and Authorization</title>
+    <link rel="stylesheet" media="print" href="themes/nagasaki/css/print.css">
+    <link rel="stylesheet" media="screen, projection" href="themes/nagasaki/css/screen.css">
+    
+    <link rel="stylesheet" href="css/solarized.css">
+    
+    <link rel="stylesheet" href="css/custom.css">
+    
+    <script type="text/javascript" src="themes/nagasaki/js/slides.js"></script>
+    
+</head>
+<body>
+<div id="blank"></div>
+<div class="presentation">
+    <div id="time">
+        <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
+    </div>
+    <div id="current_presenter_notes">
+        <div id="presenter_note"></div>
+    </div>
+    <div class="slides">
+        
+        <!-- slide source: src/oauth2/title.md -->
+        <div class="slide-wrapper">
+            <div class="slide">
+                <div class="inner">
+                    
+                    <header><h1>Authentication and Authorization</h1></header>
+                    
+                    
+                    <section><p><img alt="" src="src/oauth2/images/oauth-logo.png" /></p>
+<h1>with OAuth2</h1></section>
+                    
+                </div>
+                <div class="presenter_notes">
+                    <header><h1>Notes</h1></header>
+                    <section>
+                        
+                    </section>
+                </div>
+                <footer>
+                    
+                    <aside class="source">
+                        Source: <a href="src/oauth2/title.md">src/oauth2/title.md</a>
+                    </aside>
+                    
+                    <aside class="page_number">
+                        1/19
+                    </aside>
+                </footer>
+            </div>
+        </div>
+        
+        <!-- slide source: src/me.md -->
+        <div class="slide-wrapper">
+            <div class="slide">
+                <div class="inner">
+                    
+                    <header><h1>Kristopher Wilson</h1></header>
+                    
+                    
+                    <section><h2>I Make PHP Things</h2>
+<p><img alt="" src="src/images/me.png" /></p>
+<h3>Twitter: <a href="https://twitter.com/mrkrstphr">@mrkrstphr</a></h3>
+<h3>GitHub: <a href="https://github.com/mrkrstphr">mrkrstphr</a></h3>
+<h3>Rants: <a href="http://kristopherwilson.com">kristopherwilson.com</a></h3></section>
+                    
+                </div>
+                <div class="presenter_notes">
+                    <header><h1>Notes</h1></header>
+                    <section>
+                        
+                    </section>
+                </div>
+                <footer>
+                    
+                    <aside class="source">
+                        Source: <a href="src/me.md">src/me.md</a>
+                    </aside>
+                    
+                    <aside class="page_number">
+                        2/19
+                    </aside>
+                </footer>
+            </div>
+        </div>
+        
+        <!-- slide source: src/oauth2/slides.md -->
+        <div class="slide-wrapper">
+            <div class="slide">
+                <div class="inner">
+                    
+                    <header><h1>OAuth2</h1></header>
+                    
+                    
+                    <section><blockquote>
+<p>OAuth is an open standard for authorization. OAuth provides a method for clients to access server
+resources on behalf of a resource owner.</p>
+</blockquote>
+<p>OAuth gives the ability for client applications to access resources on a server owned by a user.</p></section>
+                    
+                </div>
+                <div class="presenter_notes">
+                    <header><h1>Notes</h1></header>
+                    <section>
+                        
+                    </section>
+                </div>
+                <footer>
+                    
+                    <aside class="source">
+                        Source: <a href="src/oauth2/slides.md">src/oauth2/slides.md</a>
+                    </aside>
+                    
+                    <aside class="page_number">
+                        3/19
+                    </aside>
+                </footer>
+            </div>
+        </div>
+        
+        <!-- slide source: src/oauth2/slides.md -->
+        <div class="slide-wrapper">
+            <div class="slide">
+                <div class="inner">
+                    
+                    <header><h1>Before OAuth, the web was a scary place...</h1></header>
+                    
+                    
+                    <section><p><img alt="" src="src/oauth2/images/gimme-yer-twitterz.jpg" /></p>
+<blockquote>
+<p>Wait, I have to actually give you my password...?</p>
+</blockquote></section>
+                    
+                </div>
+                <div class="presenter_notes">
+                    <header><h1>Notes</h1></header>
+                    <section>
+                        
+                    </section>
+                </div>
+                <footer>
+                    
+                    <aside class="source">
+                        Source: <a href="src/oauth2/slides.md">src/oauth2/slides.md</a>
+                    </aside>
+                    
+                    <aside class="page_number">
+                        4/19
+                    </aside>
+                </footer>
+            </div>
+        </div>
+        
+        <!-- slide source: src/oauth2/slides.md -->
+        <div class="slide-wrapper">
+            <div class="slide">
+                <div class="inner">
+                    
+                    <header><h1>Before OAuth, the web was a scary place...</h1></header>
+                    
+                    
+                    <section><p>It's like giving the keys to your car to a valet. You don't know what he's going to do with it, and you can't
+be sure he didn't make a copy to steal your car later.</p>
+<p><img alt="" src="src/oauth2/images/bad-luck-brian.jpg" /></p></section>
+                    
+                </div>
+                <div class="presenter_notes">
+                    <header><h1>Notes</h1></header>
+                    <section>
+                        
+                    </section>
+                </div>
+                <footer>
+                    
+                    <aside class="source">
+                        Source: <a href="src/oauth2/slides.md">src/oauth2/slides.md</a>
+                    </aside>
+                    
+                    <aside class="page_number">
+                        5/19
+                    </aside>
+                </footer>
+            </div>
+        </div>
+        
+        <!-- slide source: src/oauth2/slides.md -->
+        <div class="slide-wrapper">
+            <div class="slide">
+                <div class="inner">
+                    
+                    <header><h1>OAuth</h1></header>
+                    
+                    
+                    <section><h2>Enter the heroes of the Internet.</h2>
+<ul>
+<li>Blaine Cook, working at Twitter on OpenID, wanted something better</li>
+<li>Rallied a merry band of nerds behind him</li>
+<li>Released the OAuth Core 1.0 final draft 3 Oct 2007</li>
+<li>Became RFC5849</li>
+</ul></section>
+                    
+                </div>
+                <div class="presenter_notes">
+                    <header><h1>Notes</h1></header>
+                    <section>
+                        
+                    </section>
+                </div>
+                <footer>
+                    
+                    <aside class="source">
+                        Source: <a href="src/oauth2/slides.md">src/oauth2/slides.md</a>
+                    </aside>
+                    
+                    <aside class="page_number">
+                        6/19
+                    </aside>
+                </footer>
+            </div>
+        </div>
+        
+        <!-- slide source: src/oauth2/slides.md -->
+        <div class="slide-wrapper">
+            <div class="slide">
+                <div class="inner">
+                    
+                    <header><h1>OAuth2</h1></header>
+                    
+                    
+                    <section><h2>Because 2 &gt; 1</h2>
+<ul>
+<li>Published as RFC6750 in Oct 2012</li>
+<li>Simplified the specification</li>
+<li>Supported by everyone (or at least the cool people)</li>
+</ul>
+<p><img alt="" src="src/oauth2/images/ilovemath.png" /></p></section>
+                    
+                </div>
+                <div class="presenter_notes">
+                    <header><h1>Notes</h1></header>
+                    <section>
+                        
+                    </section>
+                </div>
+                <footer>
+                    
+                    <aside class="source">
+                        Source: <a href="src/oauth2/slides.md">src/oauth2/slides.md</a>
+                    </aside>
+                    
+                    <aside class="page_number">
+                        7/19
+                    </aside>
+                </footer>
+            </div>
+        </div>
+        
+        <!-- slide source: src/oauth2/slides.md -->
+        <div class="slide-wrapper">
+            <div class="slide">
+                <div class="inner">
+                    
+                    <header><h1>OAuth2</h1></header>
+                    
+                    
+                    <section><p>Solves the authentication problem that plagued the internet.</p>
+<p>Now, instead of giving your regular keys to the valet, you give them a valet key, which only permits them to
+do certain things that you authorize (by giving them the key).</p>
+<p>OAuth2 allows you to login to one service, using your identity with another service, securely.</p></section>
+                    
+                </div>
+                <div class="presenter_notes">
+                    <header><h1>Notes</h1></header>
+                    <section>
+                        
+                    </section>
+                </div>
+                <footer>
+                    
+                    <aside class="source">
+                        Source: <a href="src/oauth2/slides.md">src/oauth2/slides.md</a>
+                    </aside>
+                    
+                    <aside class="page_number">
+                        8/19
+                    </aside>
+                </footer>
+            </div>
+        </div>
+        
+        <!-- slide source: src/oauth2/slides.md -->
+        <div class="slide-wrapper">
+            <div class="slide">
+                <div class="inner">
+                    
+                    <header><h1>OAuth2 Roles</h1></header>
+                    
+                    
+                    <section><p>OAuth2 defines four roles:</p>
+<ul>
+<li><strong>Resource Owner</strong></li>
+<li><strong>Resource Server</strong></li>
+<li><strong>Client</strong></li>
+<li><strong>Authorization Server</strong></li>
+</ul></section>
+                    
+                </div>
+                <div class="presenter_notes">
+                    <header><h1>Notes</h1></header>
+                    <section>
+                        
+                    </section>
+                </div>
+                <footer>
+                    
+                    <aside class="source">
+                        Source: <a href="src/oauth2/slides.md">src/oauth2/slides.md</a>
+                    </aside>
+                    
+                    <aside class="page_number">
+                        9/19
+                    </aside>
+                </footer>
+            </div>
+        </div>
+        
+        <!-- slide source: src/oauth2/slides.md -->
+        <div class="slide-wrapper">
+            <div class="slide">
+                <div class="inner">
+                    
+                    <header><h1>OAuth2 Roles</h1></header>
+                    
+                    
+                    <section><p>OAuth2 defines four roles:</p>
+<ul>
+<li><strong>Resource Owner</strong><br>An entity capable of granting access to a protected resource. When the resource owner is a
+ person, it is referred to as an end-user.</li>
+<li><strong>Resource Server</strong></li>
+<li><strong>Client</strong></li>
+<li><strong>Authorization Server</strong></li>
+</ul></section>
+                    
+                </div>
+                <div class="presenter_notes">
+                    <header><h1>Notes</h1></header>
+                    <section>
+                        
+                    </section>
+                </div>
+                <footer>
+                    
+                    <aside class="source">
+                        Source: <a href="src/oauth2/slides.md">src/oauth2/slides.md</a>
+                    </aside>
+                    
+                    <aside class="page_number">
+                        10/19
+                    </aside>
+                </footer>
+            </div>
+        </div>
+        
+        <!-- slide source: src/oauth2/slides.md -->
+        <div class="slide-wrapper">
+            <div class="slide">
+                <div class="inner">
+                    
+                    <header><h1>OAuth2 Roles</h1></header>
+                    
+                    
+                    <section><p>OAuth2 defines four roles:</p>
+<ul>
+<li><strong>Resource Owner</strong></li>
+<li><strong>Resource Server</strong><br>The server hosting the protected resources, capable of accepting and responding to
+ protected resource requests using access tokens.</li>
+<li><strong>Client</strong></li>
+<li><strong>Authorization Server</strong></li>
+</ul></section>
+                    
+                </div>
+                <div class="presenter_notes">
+                    <header><h1>Notes</h1></header>
+                    <section>
+                        
+                    </section>
+                </div>
+                <footer>
+                    
+                    <aside class="source">
+                        Source: <a href="src/oauth2/slides.md">src/oauth2/slides.md</a>
+                    </aside>
+                    
+                    <aside class="page_number">
+                        11/19
+                    </aside>
+                </footer>
+            </div>
+        </div>
+        
+        <!-- slide source: src/oauth2/slides.md -->
+        <div class="slide-wrapper">
+            <div class="slide">
+                <div class="inner">
+                    
+                    <header><h1>OAuth2 Roles</h1></header>
+                    
+                    
+                    <section><p>OAuth2 defines four roles:</p>
+<ul>
+<li><strong>Resource Owner</strong></li>
+<li><strong>Resource Server</strong></li>
+<li><strong>Client</strong><br>An application making protected resource requests on behalf of the resource owner and with
+ its authorization.</li>
+<li><strong>Authorization Server</strong></li>
+</ul></section>
+                    
+                </div>
+                <div class="presenter_notes">
+                    <header><h1>Notes</h1></header>
+                    <section>
+                        
+                    </section>
+                </div>
+                <footer>
+                    
+                    <aside class="source">
+                        Source: <a href="src/oauth2/slides.md">src/oauth2/slides.md</a>
+                    </aside>
+                    
+                    <aside class="page_number">
+                        12/19
+                    </aside>
+                </footer>
+            </div>
+        </div>
+        
+        <!-- slide source: src/oauth2/slides.md -->
+        <div class="slide-wrapper">
+            <div class="slide">
+                <div class="inner">
+                    
+                    <header><h1>OAuth2 Roles</h1></header>
+                    
+                    
+                    <section><p>OAuth2 defines four roles:</p>
+<ul>
+<li><strong>Resource Owner</strong></li>
+<li><strong>Resource Server</strong></li>
+<li><strong>Client</strong></li>
+<li><strong>Authorization Server</strong><br>The server issuing access tokens to the client after successfully authenticating
+ the resource owner and obtaining authorization.</li>
+</ul></section>
+                    
+                </div>
+                <div class="presenter_notes">
+                    <header><h1>Notes</h1></header>
+                    <section>
+                        
+                    </section>
+                </div>
+                <footer>
+                    
+                    <aside class="source">
+                        Source: <a href="src/oauth2/slides.md">src/oauth2/slides.md</a>
+                    </aside>
+                    
+                    <aside class="page_number">
+                        13/19
+                    </aside>
+                </footer>
+            </div>
+        </div>
+        
+        <!-- slide source: src/oauth2/slides.md -->
+        <div class="slide-wrapper">
+            <div class="slide">
+                <div class="inner">
+                    
+                    <header><h1>OAuth2 Workflow</h1></header>
+                    
+                    
+                    <section><p><img alt="" src="src/oauth2/images/oauth2-workflow.png" /></p></section>
+                    
+                </div>
+                <div class="presenter_notes">
+                    <header><h1>Notes</h1></header>
+                    <section>
+                        
+                    </section>
+                </div>
+                <footer>
+                    
+                    <aside class="source">
+                        Source: <a href="src/oauth2/slides.md">src/oauth2/slides.md</a>
+                    </aside>
+                    
+                    <aside class="page_number">
+                        14/19
+                    </aside>
+                </footer>
+            </div>
+        </div>
+        
+        <!-- slide source: src/oauth2/slides.md -->
+        <div class="slide-wrapper">
+            <div class="slide">
+                <div class="inner">
+                    
+                    <header><h1>OAuth2 Example: GitHub</h1></header>
+                    
+                    
+                    <section><ol>
+<li>User clicks button to login with GitHub</li>
+<li>User is redirected to <code>https://github.com/login/oauth/authorize</code></li>
+<li>User logs in (if not already), then confirms they want to grant you access to their account</li>
+<li>User is redirected back to your service</li>
+<li>You then make a POST request with the supplied authorization grant to get an access token:<br>
+ <code>POST https://github.com/login/oauth/access_token</code></li>
+<li>The response, if the request was valid, contains an <code>access_token</code></li>
+</ol></section>
+                    
+                </div>
+                <div class="presenter_notes">
+                    <header><h1>Notes</h1></header>
+                    <section>
+                        
+                    </section>
+                </div>
+                <footer>
+                    
+                    <aside class="source">
+                        Source: <a href="src/oauth2/slides.md">src/oauth2/slides.md</a>
+                    </aside>
+                    
+                    <aside class="page_number">
+                        15/19
+                    </aside>
+                </footer>
+            </div>
+        </div>
+        
+        <!-- slide source: src/oauth2/slides.md -->
+        <div class="slide-wrapper">
+            <div class="slide has_code">
+                <div class="inner">
+                    
+                    <header><h1>OAuth2 Example: GitHub</h1></header>
+                    
+                    
+                    <section><p>Now that you have an <code>access_token</code> and are authorized, you can make requests on the user's behalf:</p>
+<div class="highlight"><pre>GET /user/repos?access_token=6fab32df6f00
+</pre></div>
+
+<p><img alt="" src="src/oauth2/images/access-all-the-things.jpg" /></p></section>
+                    
+                </div>
+                <div class="presenter_notes">
+                    <header><h1>Notes</h1></header>
+                    <section>
+                        
+                    </section>
+                </div>
+                <footer>
+                    
+                    <aside class="source">
+                        Source: <a href="src/oauth2/slides.md">src/oauth2/slides.md</a>
+                    </aside>
+                    
+                    <aside class="page_number">
+                        16/19
+                    </aside>
+                </footer>
+            </div>
+        </div>
+        
+        <!-- slide source: src/oauth2/slides.md -->
+        <div class="slide-wrapper">
+            <div class="slide">
+                <div class="inner">
+                    
+                    <header><h1>OAuth2</h1></header>
+                    
+                    
+                    <section><p><img alt="" src="src/oauth2/images/secure.png" /></p>
+<ul>
+<li>No password is revealed to the client</li>
+<li>The user can revoke access at any time from the service (ie GitHub, Twitter, Facebook)</li>
+<li>The client can only access portions of the site it allows the client to access...</li>
+</ul></section>
+                    
+                </div>
+                <div class="presenter_notes">
+                    <header><h1>Notes</h1></header>
+                    <section>
+                        
+                    </section>
+                </div>
+                <footer>
+                    
+                    <aside class="source">
+                        Source: <a href="src/oauth2/slides.md">src/oauth2/slides.md</a>
+                    </aside>
+                    
+                    <aside class="page_number">
+                        17/19
+                    </aside>
+                </footer>
+            </div>
+        </div>
+        
+        <!-- slide source: src/oauth2/slides.md -->
+        <div class="slide-wrapper">
+            <div class="slide">
+                <div class="inner">
+                    
+                    <header><h1>Which brings us to <strong>Authorization</strong></h1></header>
+                    
+                    
+                </div>
+                <div class="presenter_notes">
+                    <header><h1>Notes</h1></header>
+                    <section>
+                        
+                    </section>
+                </div>
+                <footer>
+                    
+                    <aside class="source">
+                        Source: <a href="src/oauth2/slides.md">src/oauth2/slides.md</a>
+                    </aside>
+                    
+                    <aside class="page_number">
+                        18/19
+                    </aside>
+                </footer>
+            </div>
+        </div>
+        
+        <!-- slide source: src/oauth2/slides.md -->
+        <div class="slide-wrapper">
+            <div class="slide">
+                <div class="inner">
+                    
+                    <header><h1>Authorization with OAuth2</h1></header>
+                    
+                    
+                </div>
+                <div class="presenter_notes">
+                    <header><h1>Notes</h1></header>
+                    <section>
+                        
+                    </section>
+                </div>
+                <footer>
+                    
+                    <aside class="source">
+                        Source: <a href="src/oauth2/slides.md">src/oauth2/slides.md</a>
+                    </aside>
+                    
+                    <aside class="page_number">
+                        19/19
+                    </aside>
+                </footer>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+
+<div id="toc" class="sidebar hidden">
+    <h2>Table of Contents</h2>
+    <table>
+        <caption>Table of Contents</caption>
+        
+        <tr id="toc-row-1">
+            <th><a href="#slide1">Authentication and Authorization</a></th>
+            <td><a href="#slide1">1</a></td>
+        </tr>
+        
+        
+        <tr id="toc-row-2">
+            <th><a href="#slide2">Kristopher Wilson</a></th>
+            <td><a href="#slide2">2</a></td>
+        </tr>
+        
+        
+        <tr id="toc-row-3">
+            <th><a href="#slide3">OAuth2</a></th>
+            <td><a href="#slide3">3</a></td>
+        </tr>
+        
+        
+        <tr id="toc-row-4">
+            <th><a href="#slide4">Before OAuth, the web was a scary place...</a></th>
+            <td><a href="#slide4">4</a></td>
+        </tr>
+        
+        
+        <tr id="toc-row-5">
+            <th><a href="#slide5">Before OAuth, the web was a scary place...</a></th>
+            <td><a href="#slide5">5</a></td>
+        </tr>
+        
+        
+        <tr id="toc-row-6">
+            <th><a href="#slide6">OAuth</a></th>
+            <td><a href="#slide6">6</a></td>
+        </tr>
+        
+        
+        <tr id="toc-row-7">
+            <th><a href="#slide7">OAuth2</a></th>
+            <td><a href="#slide7">7</a></td>
+        </tr>
+        
+        
+        <tr id="toc-row-8">
+            <th><a href="#slide8">OAuth2</a></th>
+            <td><a href="#slide8">8</a></td>
+        </tr>
+        
+        
+        <tr id="toc-row-9">
+            <th><a href="#slide9">OAuth2 Roles</a></th>
+            <td><a href="#slide9">9</a></td>
+        </tr>
+        
+        
+        <tr id="toc-row-10">
+            <th><a href="#slide10">OAuth2 Roles</a></th>
+            <td><a href="#slide10">10</a></td>
+        </tr>
+        
+        
+        <tr id="toc-row-11">
+            <th><a href="#slide11">OAuth2 Roles</a></th>
+            <td><a href="#slide11">11</a></td>
+        </tr>
+        
+        
+        <tr id="toc-row-12">
+            <th><a href="#slide12">OAuth2 Roles</a></th>
+            <td><a href="#slide12">12</a></td>
+        </tr>
+        
+        
+        <tr id="toc-row-13">
+            <th><a href="#slide13">OAuth2 Roles</a></th>
+            <td><a href="#slide13">13</a></td>
+        </tr>
+        
+        
+        <tr id="toc-row-14">
+            <th><a href="#slide14">OAuth2 Workflow</a></th>
+            <td><a href="#slide14">14</a></td>
+        </tr>
+        
+        
+        <tr id="toc-row-15">
+            <th><a href="#slide15">OAuth2 Example: GitHub</a></th>
+            <td><a href="#slide15">15</a></td>
+        </tr>
+        
+        
+        <tr id="toc-row-16">
+            <th><a href="#slide16">OAuth2 Example: GitHub</a></th>
+            <td><a href="#slide16">16</a></td>
+        </tr>
+        
+        
+        <tr id="toc-row-17">
+            <th><a href="#slide17">OAuth2</a></th>
+            <td><a href="#slide17">17</a></td>
+        </tr>
+        
+        
+        <tr id="toc-row-18">
+            <th><a href="#slide18">Which brings us to <strong>Authorization</strong></a></th>
+            <td><a href="#slide18">18</a></td>
+        </tr>
+        
+        
+        <tr id="toc-row-19">
+            <th><a href="#slide19">Authorization with OAuth2</a></th>
+            <td><a href="#slide19">19</a></td>
+        </tr>
+        
+        
+    </table>
+</div>
+
+<div id="help" class="sidebar hidden">
+    <h2>Help</h2>
+    <table>
+        <caption>Help</caption>
+        <tr>
+            <th>Table of contents</th>
+            <td>t</td>
+        </tr>
+        <tr>
+            <th>Exposé</th>
+            <td>ESC</td>
+        </tr>
+        <tr>
+            <th>Autoscale</th>
+            <td>e</td>
+        </tr>
+        <tr>
+            <th>Full screen slides</th>
+            <td>f</td>
+        </tr>
+        <tr>
+            <th>Presenter view</th>
+            <td>p</td>
+        </tr>
+        <tr>
+            <th>Source files</th>
+            <td>s</td>
+        </tr>
+        <tr>
+            <th>Slide numbers</th>
+            <td>n</td>
+        </tr>
+        <tr>
+            <th>Blank screen</th>
+            <td>b</td>
+        </tr>
+        <tr>
+            <th>Notes</th>
+            <td>2</td>
+        </tr>
+        <tr>
+            <th>Help</th>
+            <td>h</td>
+        </tr>
+    </table>
+</div>
+<script>$().landslide();</script>
+</body>
+</html>
