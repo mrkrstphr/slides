@@ -53,6 +53,8 @@ a:focus {
 }
 
 pre {
+    background-color: #191919;
+    color: #FFF;
     padding: 5px 10px 5px 10px;
     font-size: 75%;
     font-family: Courier, monospace;
