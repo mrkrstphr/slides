@@ -1,0 +1,625 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Optimus PHP</title>
+    <meta name="description" content="Optimizing PHP to run super fast!">
+    <meta name="author" content="Kristopher Wilson">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="../vendor/reveal.js/css/reveal.min.css">
+    <link rel="stylesheet" href="../css/themes/blood-modified.css" id="theme">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../vendor/reveal.js/lib/css/zenburn.css">
+
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? '../css/print/pdf.css' : '../css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild( link );
+    </script>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <h1>Optimus PHP</h1>
+
+                <img alt="OptimusPHP" src="../images/optimus-php/optimus-php.png">
+            </section>
+
+            <section>
+                <h2>Kristopher Wilson</h2>
+
+                <h3>I Make PHP Things</h3>
+
+                <img alt="mrkrstphr" src="../images/me.png">
+
+                <p>
+                    Twitter: <a href="https://twitter.com/mrkrstphr">@mrkrstphr</a><br>
+                    GitHub: <a href="https://github.com/mrkrstphr">mrkrstphr</a><br>
+                    Rants: <a href="http://kristopherwilson.com">kristopherwilson.com</a><br>
+                </p>
+            </section>
+
+            <section>
+                <h2>Performance</h2>
+                <blockquote>
+                    The capabilities of a machine, vehicle, or product, especially when observed under particular conditions.
+                </blockquote>
+                <p>
+                    <img alt="stress" src="../images/optimus-php/stress.jpg">
+                </p>
+            </section>
+
+            <section data-background-color="#e94b3b">
+                <h2>Is there a problem?</h2>
+                <h3>If not, you may be over optimizing.</h3>
+                <h4>Just go write more code instead.</h4>
+            </section>
+
+            <section data-background-color="#e94b3b">
+                <h2>Is there a problem?</h2>
+                <h3>You'll know.</h3>
+                <h4>People generally start to get complain.</h4>
+            </section>
+
+            <section>
+                <h2>What do we optimize?</h2>
+
+                <blockquote>
+                    I heard that single quotes are faster than double quotes, so I'm going to find and replace all my
+                    source code to get rid of double quotes quotes!
+                </blockquote>
+
+                <p>
+                    Congrats. You just made your application <strong>0.0005ms</strong> faster per request.
+                </p>
+            </section>
+
+            <section data-background-color="#e94b3b">
+                <h1>Micro Optimizations are a Sham!</h1>
+            </section>
+
+            <section>
+                <h2>Okay, some of them might be legit...</h2>
+
+                <pre><code class="php">
+    for ($i = 0; $i < count($someCountable); $i++) {
+        // do something cool
+    }
+
+    // so much performance...
+    $count = count($someCountable);
+    for ($i = 0; $i < $count; $i++) {
+        // do something cool marginally faster!
+    }
+                </code></pre>
+
+                <p>
+                    Embedding count in the for loop causes PHP to count that variable over and over.
+                </p>
+            </section>
+
+            <section>
+                <h2>Micro Optimizations are (mostly) a Sham!</h2>
+
+                <a href="http://phpbench.com/">phpbench.com</a>
+            </section>
+
+            <section data-background-color="#5cb85c">
+                <h1>Focus on the Big Picture</h1>
+            </section>
+
+            <section data-background-color="#5cb85c">
+                <h1>What slows us down?</h1>
+            </section>
+
+            <section>
+                <h2>What slows us down?</h2>
+
+                <ul>
+                    <li>PHP</li>
+                    <li>Bad Code</li>
+                    <li>Database</li>
+                    <li>Frameworks</li>
+                    <li>External APIs</li>
+                    <li>Long Running Processes</li>
+                </ul>
+            </section>
+
+            <section>
+                <h1>Upgrade PHP</h1>
+            </section>
+
+            <section>
+                <h2>Upgrade PHP</h2>
+
+                <h3>PHP 5.3 is 20% father than PHP 5.2.</h3>
+
+                <a href="http://news.php.net/php.internals/36484">http://news.php.net/php.internals/36484</a>
+            </section>
+
+            <section>
+                <h2>Upgrade PHP</h2>
+
+                <h3>PHP 5.4 is 20-50% faster than PHP 5.3</h3>
+
+                <a href="http://news.php.net/php.internals/57760">http://news.php.net/php.internals/57760</a>
+            </section>
+
+            <section>
+                <h2>Upgrade PHP</h2>
+
+                <h3>
+                    PHP 5.6 brought some relatively small improvements, mostly in the
+                    case of processing POST vars quicker and more efficiently.
+                </h3>
+
+                <a href="http://www.lornajane.net/posts/2014/php-5-6-benchmarks">
+                    http://www.lornajane.net/posts/2014/php-5-6-benchmarks</a>
+            </section>
+
+            <section>
+                <h2>PHP 5.2 -> PHP 5.6</h2>
+
+                <h3>45-70% improvement!</h3>
+
+                <p>
+                    <img alt="doc brown" src="../images/doc-brown.gif">
+                </p>
+
+                <h3>Upgrade. NOW.</h3>
+            </section>
+
+            <section>
+                <h2>PHP 7</h2>
+
+                <h3>85% faster (using Wordpress) than PHP 5.5</h3>
+
+                <h3>Amazeballs.</h3>
+
+                <p>
+                    <img alt="clap" src="../images/mac-clapper.gif">
+                </p>
+
+                <p>
+                    <a href="http://zsuraski.blogspot.com/2014/07/benchmarking-phpng.html">
+                        http://zsuraski.blogspot.com/2014/07/benchmarking-phpng.html</a>
+                </p>
+            </section>
+
+            <section>
+                <h2>HHVM?</h2>
+
+                <img alt="hhvm" src="../images/hhvm-logo.png">
+
+                <h3>So fast.</h3>
+            </section>
+
+            <section>
+                <h1>Fix Bad Code</h1>
+            </section>
+
+            <section>
+                <h2>Fix Bad Code</h2>
+
+                <h3>Database Queries are Expensive</h3>
+
+                <p>
+                    <img alt="money" src="../images/optimus-php/money.gif">
+                </p>
+            </section>
+
+            <section>
+                <h2>Fix Bad Code</h2>
+
+                <h3>Cache Repetitive Queries</h3>
+
+                <pre><code class="php">foreach ($customers as $customer) {
+    // ...
+    $sql = 'SELECT * FROM users WHERE id = ?';
+    $rep = $db->fetchRow($sql, [$customer->getSalesRepId()]);
+    // ...
+}</code></pre>
+
+                <pre><code class="php">$reps = [];
+foreach ($customers as $customer) {
+    // ...
+    if (isset($reps[$customer->getSalesRepId()])) {
+        $rep = $reps[$customer->getSalesRepId()];
+    } else {
+        $sql = 'SELECT * FROM users WHERE id = ?';
+        $rep = $db->fetchRow($sql, [$customer->getSalesRepId()]);
+    }
+}</code></pre>
+            </section>
+
+            <section>
+                <h2>Fix Bad Code</h2>
+                <h3>Eagerly Load Related Data</h3>
+
+                <pre><code class="php">$sql = 'SELECT * FROM customers c JOIN users u ON u.id = c.sales_rep_id';
+$customers = $db->fetchAll($sql);
+
+foreach ($customers as $customer) {
+    // do outrageously awesome things
+}</code></pre>
+
+                <blockquote>Look, Ma! Only 1 query!</blockquote>
+            </section>
+
+            <section>
+                <h2>Fix Bad Code</h2>
+
+                <h3>Don't Misuse ORMs</h3>
+
+                <pre><code class="php">$customers = $repository->getBy(['status' => 'active']);
+
+foreach ($customers as $customer) {
+    $rep = $customer->getSalesRep(); // query
+    $orders = $customer->getOrders(); // query
+
+    foreach ($orders as $order) {
+        $product = $order->getProduct(); // query, query, query
+    }
+}</code></pre>
+
+                <p>
+                    1 + 1000 + 1000 + (1000 customers * avg 20 orders each) = 22,001 queries.
+                </p>
+
+                <p>
+                    Oops.
+                </p>
+            </section>
+
+            <section data-background-color="#428bca">
+                <h1>Find Bad Code</h1>
+            </section>
+
+            <section>
+                <h2>Find Bad Code</h2>
+                <h3>Use a Profiler</h3>
+
+                <blockquote>
+                    Profiling is measuring the relative performance of your application at the code-level. Profiling will
+                    capture things like CPU usage, memory usage, time and number of calls per function, as well as capturing
+                    a call graph. The act of profiling will impact performance.
+                </blockquote>
+
+                <a href="https://blog.engineyard.com/2014/profiling-with-xhprof-xhgui-part-1">
+                    https://blog.engineyard.com/2014/profiling-with-xhprof-xhgui-part-1</a>
+            </section>
+
+            <section>
+                <h2>Find Bad Code</h2>
+                <h3>Profilers</h3>
+
+                <ul>
+                    <li>Symfony Profiler</li>
+                    <li>Zend Developer Tools</li>
+                    <li>Laravel Debugbar</li>
+                    <li>xhprof</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>xhprof</h2>
+
+                <blockquote>
+                    Light-weight hierarchical and instrumentation based profiler. Shows the path of code execution, cpu time,
+                    memory usage, etc.
+                </blockquote>
+
+                <img alt="xhprof" src="../images/optimus-php/xhprof.jpg">
+            </section>
+
+            <section>
+                <h2>xhgui</h2>
+                <img alt="xhgui" src="../images/optimus-php/xhgui.png">
+            </section>
+
+            <section>
+                <h2>xhprof + xhgui</h2>
+
+                <ul>
+                    <li>Pretty!</li>
+                    <li>Graphs!</li>
+                    <li>Drill into specific runs</li>
+                    <li>Sort data</li>
+                    <li>Compare different runs</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>xhprof + xhgui</h2>
+
+                <p>
+                    This guy explains things very eloquently:
+                    <a href="https://blog.engineyard.com/2014/profiling-with-xhprof-xhgui-part-1">
+                        https://blog.engineyard.com/2014/profiling-with-xhprof-xhgui-part-1</a>
+                </p>
+            </section>
+
+            <section data-background-color="#428bca">
+                <h1>Be smarter with Composer!</h1>
+            </section>
+
+            <section>
+                <h2>Composer Autoloading</h2>
+                <h3>Composer autoloading is great.</h3>
+                <h3>PSR-0 + PSR-4 are great.</h3>
+                <h4 class="fragment mad-text">They're slow. Way too many lookups, computations, etc...</h4>
+            </section>
+
+            <section>
+                <h2>Composer Class Map</h2>
+
+                <p>
+                    Composer's class map will take all the classes and dump them into a giant array of class => filename.
+                </p>
+                <p class="fragment">
+                    It makes composer autoloading much faster, especially when coupled with caching
+                </p>
+            </section>
+
+            <section>
+                <h2>Composer Class Map</h2>
+
+                <pre><code data-trim>composer dump-autoload --optimize</code></pre>
+
+                <h3>Run this on deployment!</h3>
+            </section>
+
+            <section data-background-color="#428bca">
+                <h1>Your Framework is a Resource Hog!</h1>
+            </section>
+
+            <section>
+                <h2>Your Framework is a Resource Hog!</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Framework</th>
+                            <th>Req/Sec</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Phalcon</td>
+                            <td>822.96</td>
+                        </tr>
+                        <tr>
+                            <td>Slim</td>
+                            <td>399.83</td>
+                        </tr>
+                        <tr>
+                            <td>Kohana</td>
+                            <td>217.34</td>
+                        </tr>
+                        <tr>
+                            <td>Code Igniter</td>
+                            <td>187.78</td>
+                        </tr>
+                        <tr>
+                            <td>Silex</td>
+                            <td>179.01</td>
+                        </tr>
+                        <tr>
+                            <td>Laravel</td>
+                            <td>135.90</td>
+                        </tr>
+                        <tr>
+                            <td>YII</td>
+                            <td>123.50</td>
+                        </tr>
+                        <tr>
+                            <td>Fuel PHP</td>
+                            <td>116.34</td>
+                        </tr>
+                        <tr>
+                            <td>Zend 1</td>
+                            <td>103.02</td>
+                        </tr>
+                        <tr>
+                            <td>Cake PHP</td>
+                            <td>54.97</td>
+                        </tr>
+                        <tr>
+                            <td>Symfony2</td>
+                            <td>39.22</td>
+                        </tr>
+                        <tr>
+                            <td>Zend 2</td>
+                            <td>36.10</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>
+                    <a href="http://systemsarchitect.net/performance-benchmark-of-popular-php-frameworks/">
+                        http://systemsarchitect.net/performance-benchmark-of-popular-php-frameworks/</a>
+                </p>
+            </section>
+
+            <section>
+                <h2>Frameworks?</h2>
+
+                <h3>Enable caching, especially byte code caching.</h3>
+
+                <ul>
+                    <li>
+                        <strong>Symfony:</strong>
+                        <a href="http://symfony.com/doc/current/book/performance.html">
+                            http://symfony.com/doc/current/book/performance.html</a>
+                    </li>
+                    <li>
+                        <strong>ZF2:</strong>
+                        <a href="http://stackoverflow.com/questions/14667621/zf2-optimize-for-high-traffic">
+                        http://stackoverflow.com/questions/14667621/zf2-optimize-for-high-traffic</a>???
+                    </li>
+                    <li>
+                        <strong>Laravel:</strong>
+                        <a href="http://google.com">http://google.com</a>???
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Frameworks?</h2>
+                <h3>Do you need one? Or will a small, simple set of components suffice?</h3>
+                <img alt="thinking" src="../images/optimus-php/thinking.gif">
+            </section>
+
+            <section>
+                <h2>Microframeworks</h2>
+
+                <h3>Silex and Slim are great for small projects, have a light footprint, and are fast!</h3>
+
+                <p>
+                    <strong>Silex:</strong> <a href="http://silex.sensiolabs.org/">silex.sensiolabs.org</a><br>
+                    <strong>Slim:</strong> <a href="http://www.slimframework.com/">slimframework.com</a>
+                </p>
+            </section>
+
+            <section>
+                <h2>Phalcon!</h2>
+
+                <blockquote>
+                    Phalcon is a web framework implemented as a C extension offering high performance and
+                    lower resource consumption.
+                </blockquote>
+
+                <img alt="Phalcon" src="../images/phalcon-logo.png">
+            </section>
+
+            <section data-background-color="#428bca">
+                <h1>Optimize the Front End</h1>
+            </section>
+
+            <section>
+                <h2>Optimize the Front End</h2>
+
+                <h3>Upwards of 80% of the processing can take place in the browser.</h3>
+            </section>
+
+            <section>
+                <h2>Optimize the Front End</h2>
+
+                <h3>Minimize Your CSS and JavaScript files!</h3>
+
+                <p>
+                    Consider using a JavaScript task runner like Grunt or Gulp, which have
+                    plugins to easily minimize your CSS and JavaScript.
+                </p>
+
+                <p>Do this on deployment!</p>
+            </section>
+
+            <section>
+                <h2>Optimize the Front End</h2>
+
+                <h3>Combine Your CSS and JavaScript files!</h3>
+
+                <p>
+                    Combined, minified files means less files to download, less requests for the server to process.
+                </p>
+
+                <p>
+                    Grunt or Gulp can also help with this. Do it on deployment!
+                </p>
+            </section>
+
+            <section>
+                <h2>Optimize the Front End</h2>
+
+                <h3>Don't combine Your CSS and JavaScript files!</h3>
+
+                <p>
+                    If it's not needed on every page, you're wasting the browser's time parsing it!
+                </p>
+
+                <p>
+                    Be smart.
+                </p>
+            </section>
+
+            <section>
+                <h2>Optimize the Front End</h2>
+                <h3>Use Nginx to serve static content! It's fast!</h3>
+
+                <p>
+                    Graphs + such: <a href="http://www.theorganicagency.com/apache-vs-nginx-performance-comparison/">
+                        http://www.theorganicagency.com/apache-vs-nginx-performance-comparison</a>
+                </p>
+            </section>
+
+            <section>
+                <h2>Optimize the Front End</h2>
+                <h3>Use Nginx to serve gzip compressed assets!</h3>
+
+                <pre><code>gzip on;
+gzip_proxied any;
+gzip_types text/plain text/xml text/css application/x-javascript;
+gzip_vary on;</code></pre>
+            </section>
+
+            <section>
+                <h2>Optimize the Front End</h2>
+                <h3>Utilize browser caching to cut down on requests.</h3>
+
+                <pre><code>location ~* \.(?:ico|css|js|gif|jpe?g|png)$ {
+    expires 30d;
+    add_header Pragma public;
+    add_header Cache-Control "public";
+}</code></pre>
+            </section>
+
+            <section>
+                <h2>Optimize the Front End</h2>
+                <p>
+                    Use a query string with the deployment ID to prevent caching AFTER deployment
+                </p>
+
+                <pre><code data-trim>http://aol.com/images/our-vacation-to-florida.jpg?c41fab</code></pre>
+            </section>
+
+            <section data-background-color="#f0ad4e">
+                <h1>Questions?</h1>
+                <img alt="questions" src="../images/askin-all-them-questions.gif">
+            </section>
+        </div>
+    </div>
+
+    <script src="../vendor/reveal.js/lib/js/head.min.js"></script>
+    <script src="../vendor/reveal.js/js/reveal.min.js"></script>
+    <script>
+        // Full list of configuration options available here:
+        // https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
+
+            theme: Reveal.getQueryHash().theme,
+            transition: Reveal.getQueryHash().transition || 'linear',
+
+            // Optional libraries used to extend on reveal.js
+            dependencies: [
+                {src: '/vendor/reveal.js/lib/js/classList.js', condition: function() {return !document.body.classList}},
+                {src: '/vendor/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                {src: '/vendor/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                {src: '/vendor/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() {hljs.initHighlightingOnLoad()}},
+                {src: '/vendor/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                {src: '/vendor/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+            ]
+        });
+    </script>
+</body>
+</html>

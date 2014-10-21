@@ -1,9 +1,0 @@
-{
-    "css": {
-        "themes/nagasaki/css/screen.css": "screen, projection",
-        "themes/nagasaki/css/print.css": "print"
-    },
-    "js": [
-        "themes/nagasaki/js/slides.js"
-    ]
-}
